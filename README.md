@@ -4,9 +4,9 @@ It has been tested with a Dell PowerEdge R720.<br/>
 It has the following fan curve:
 | **Temp** | **Fan speed** |
 |----------|---------------|
-|  < 50°C  |      10%      |
-|  < 70°C  |      20%      |
-|  >= 70°C |     linear    |
+|  < 50%  |      10%      |
+|  < 70%  |      20%      |
+|  >= 70% |     linear    |
 
 ## Prerequisites
 IPMI Over LAN must be enabled on the iDRAC module. Without this, the module won't respond to IPMI commands.
