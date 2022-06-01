@@ -2,7 +2,7 @@
 A python script to make the fans of a dell server quiet.<br/>
 It has been tested with a Dell PowerEdge R720 with 2 x E5-2690.<br/>
 It has the following fan curve:<br/>
-`MIN(10%, (temp in %)^5)`<br/>
+`MIN(5%, (temp in %)^5)`<br/>
 This fan curve has a good balance between performance and noise. It hit a maximum temperature of 80°C when stress testing.
 
 ## Prerequisites

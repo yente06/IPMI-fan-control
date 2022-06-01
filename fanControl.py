@@ -7,7 +7,7 @@ maxTemp = 90
 ipmiAddress = "192.168.1.33"
 ipmiUser = "admin"
 ipmiPassword = "password"
-fanCurve = lambda x: max(0.1, pow(x, 5))
+fanCurve = lambda x: max(0.05, pow(x, 5))
 ##################
 
 def getMaxTemp():
