@@ -39,7 +39,7 @@ IPMI Over LAN must be enabled on the iDRAC module. Without this, the module won'
    - `fanCurve`: the fan curve given the temperature in percent (`minTemp`: 0%, `maxTemp`: 100%)
 3. Move `fanControl.py` to `/usr/bin/fanControl.py`:
    ```
-   mv fanControl.py /usr/bin/fanControl.py
+   sudo mv fanControl.py /usr/bin/fanControl.py
    ```
 4. Create and open the following file: `/etc/systemd/system/fanControl.service`:
    ```
