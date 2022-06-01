@@ -7,7 +7,7 @@ maxTemp = 90
 ipmiAddress = "192.168.1.33"
 ipmiUser = "admin"
 ipmiPassword = "password"
-fanCurve = lambda x: 0.1 if x < 0.5 else 0.2 if x < 0.7 else x
+fanCurve = lambda x: max(0.1, pow(x, 5))
 ##################
 
 def getMaxTemp():
@@ -40,7 +40,7 @@ lastSpeed = -1
 while True:
     currentTemp = getMaxTemp()
     percentage = round((currentTemp-minTemp) / (maxTemp-minTemp), 2)
-    newSpeed = fanCurve(percentage)
+    newSpeed = round(fanCurve(percentage), 2)
     if not lastSpeed == newSpeed:
         setFanSpeed(newSpeed)
         print(f"Fan speed set to {round(newSpeed*100)}% (temp: {currentTemp}°C, {round(percentage*100)}%)")
