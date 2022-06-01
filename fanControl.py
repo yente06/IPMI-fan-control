@@ -37,13 +37,15 @@ def setFanSpeed(percentage):
     os.system(f"ipmitool -I lanplus -H {ipmiAddress} -U {ipmiUser} -P {ipmiPassword} raw 0x30 0x30 0x02 0xff {hex(percentage)} > /dev/null")
 
 lastSpeed = -1
+lastTemp = -1
 while True:
     currentTemp = getMaxTemp()
     percentage = round((currentTemp-minTemp) / (maxTemp-minTemp), 2)
     newSpeed = round(fanCurve(percentage), 2)
-    if not lastSpeed == newSpeed:
+    if (not lastSpeed == newSpeed) and abs(lastTemp-currentTemp) >= 3:
         setFanSpeed(newSpeed)
         print(f"Fan speed set to {round(newSpeed*100)}% (temp: {currentTemp}°C, {round(percentage*100)}%)")
         lastSpeed = newSpeed
+        lastTemp = currentTemp
 
     sleep(1)
