@@ -37,7 +37,11 @@ IPMI Over LAN must be enabled on the iDRAC module. Without this, the module won'
    - `ipmiUser`: the username of the iDRAC module (IPMI)
    - `ipmiPassword`: the password of the iDRAC module (IPMI)
    - `fanCurve`: the fan curve given the temperature in percent (`minTemp`: 0%, `maxTemp`: 100%)
-3. Create and open the following file: `/etc/systemd/system/fanControl.service`:
+3. Move `fanControl.py` to `/usr/bin/fanControl.py`:
+   ```
+   mv fanControl.py /usr/bin/fanControl.py
+   ```
+4. Create and open the following file: `/etc/systemd/system/fanControl.service`:
    ```
    sudo nano /etc/systemd/system/fanControl.service
    ```
@@ -57,7 +61,7 @@ IPMI Over LAN must be enabled on the iDRAC module. Without this, the module won'
    ```
    sudo chmod 644 /etc/systemd/system/fanControl.service
    ```
-4. Enable the service on startup:
+5. Enable the service on startup:
    ```
    sudo systemctl enable --now fanControl
    ```
