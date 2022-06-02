@@ -36,6 +36,9 @@ def setFanSpeed(percentage):
 
     os.system(f"ipmitool -I lanplus -H {ipmiAddress} -U {ipmiUser} -P {ipmiPassword} raw 0x30 0x30 0x02 0xff {hex(percentage)} > /dev/null")
 
+# Enabling manual fan control
+os.system(f"ipmitool -I lanplus -H {ipmiAddress} -U {ipmiUser} -P {ipmiPassword} raw 0x30 0x30 0x01 0x00 > /dev/null")
+
 lastSpeed = -1
 lastTemp = -1
 while True:
