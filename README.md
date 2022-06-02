@@ -9,26 +9,26 @@ This fan curve has a good balance between performance and noise. It hit a maximu
 IPMI Over LAN must be enabled on the iDRAC module. Without this, the module won't respond to IPMI commands.
 
 ## Installation
-1. Install python and ipmitool:
+1. Install python, ipmitool and lm-sensors:
    ### Debian/Ubuntu:
    ```
-   sudo apt install python3 ipmitool
+   sudo apt install python3 ipmitool lm-sensors
    ```
    ### Fedora
    ```
-   sudo dnf install python3 ipmitool
+   sudo dnf install python3 ipmitool lm_sensors
    ```
    ### CentOS/RHEL
    ```
-   sudo yum install python3 ipmitool
+   sudo yum install python3 ipmitool lm_sensors
    ```
    ### Arch Linux
    ```
-   sudo pacman -S python3 ipmitool
+   sudo pacman -S python3 ipmitool lm_sensors
    ```
    ### openSUSE
    ```
-   sudo zypper install python3 ipmitool
+   sudo zypper install python3 ipmitool sensors
    ```
 2. Change the config variables in `fanControl.py`:
    - `minTemp`: the minimum temperature set in the server
